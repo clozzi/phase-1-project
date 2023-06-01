@@ -1,10 +1,10 @@
-#Phase 1 Project: JS, CSS, HTML
+# Phase 1 Project: JS, CSS, HTML
 
-##Candidate Search Portal for Scientific Studies
+## Candidate Search Portal for Scientific Studies
 
 ---
 
-###Built Using
+### Built Using
 
 ```bash
 Javascript
@@ -29,16 +29,16 @@ CSS
 
 ---
 
-###Preview
+### Preview
 
 INSERT GIF HERE
 
-###Usage
+### Usage
 
-###Contributing
+### Contributing
 
-###License
+### License
 
-###Contact
+### Contact
 
-###Acknowledgements
+### Acknowledgements
