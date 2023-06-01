@@ -1,3 +1,21 @@
-p {
-    color: aquamarine;
+html {
+    background-color: lightgray;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+.button {
+    color: gray;
+    display: flex;
+    justify-content: center;
+}
+
+.topnav {
+    color: green;
+    background-color: black;
+    margin: auto;
+    text-align: center;
 }
