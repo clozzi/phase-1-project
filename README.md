@@ -45,11 +45,15 @@ The functionality of this project can be modified to select populations for alte
 ### Contributing
 
 Please feel free to make this project even better!
+
 **Instructions on how to fork here**
 
 ### Contact
+
 Email: clozzi12@gmail.com
+
 Git: https://github.com/clozzi
+
 LinkedIn: https://www.linkedin.com/in/christopher-lozzi-823777260/
 
 ### Acknowledgements
