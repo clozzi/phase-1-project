@@ -17,3 +17,5 @@ function displaySubject(data) {
     subjectImg.src = volunteer.picture.large;
     randomSubject.appendChild(subjectImg);
 }
+
+document.getElementById("nextProfile").addEventListener("click", fetchVolunteer);
