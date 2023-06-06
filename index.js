@@ -27,6 +27,13 @@ function displaySubject(data) {
 }
 
 //add current subject to "study list" -- targeted incorrectly/not functioning
+document.getElementById("addSubject").addEventListener('click', addToList);
+function addToList() {
+    let li = document.createElement('li');
+    li.innerHTML = randomSubject;
+    document.querySelector('#subjectList').appendChild(li);
+}
+/*
 document.addEventListener("DOMContentLoaded", () => {
     addSubject.addEventListener('click', (e) => {
         e.preventDefault();
@@ -39,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     li.innerHTML = randomSubject;
     document.querySelector('#subjectList').appendChild(li);
   }
+*/
 
 //allow user to cycle through random user profiles
 document.getElementById("nextProfile").addEventListener("click", fetchVolunteer);
