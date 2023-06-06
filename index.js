@@ -10,7 +10,7 @@ function fetchVolunteer() {
 
 //create heading with subjects first and last name
 function displaySubject(data) {
-    randomSubject.innerHTML = ""
+    randomSubject.innerHTML = "";
     let volunteer = data.results[0];
     let subjectName = (volunteer.name.first + " " + volunteer.name.last);
     let heading = document.createElement("h1");
@@ -23,9 +23,18 @@ function displaySubject(data) {
 }
 
 //add current subject to "study list"
-function addSubject() {
+document.addEventListener("DOMContentLoaded", () => {
+    addSubject.addEventListener('click', (e) => {
+        e.preventDefault();
+        newSubject(e.target["subjectList"].value);
+    });
+  });
 
-}
+  function newSubject(randomSubject) {
+    let li = document.createElement('li');
+    li.innerHTML = randomSubject;
+    document.querySelector('#subjectList').appendChild(li);
+  }
 
 //allow user to cycle through random user profiles
 document.getElementById("nextProfile").addEventListener("click", fetchVolunteer);
@@ -39,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       form.reset()
     });
   });
-//create li from input, if no input alert user
+//create notes list from input, if no input alert user
 //DELETE FUNCTION NOT FUNCTIONING
   function newNote(userNote) {
     let li = document.createElement('li');
