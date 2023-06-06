@@ -20,9 +20,13 @@ function displaySubject(data) {
     let subjectImg = document.createElement("img");
     subjectImg.src = volunteer.picture.large;
     randomSubject.appendChild(subjectImg);
+//add country below image
+    let subjPW = document.createElement("p");
+    subjPW.innerHTML = volunteer.location.country;
+    randomSubject.appendChild(subjPW);
 }
 
-//add current subject to "study list"
+//add current subject to "study list" -- targeted incorrectly/not functioning
 document.addEventListener("DOMContentLoaded", () => {
     addSubject.addEventListener('click', (e) => {
         e.preventDefault();
@@ -48,13 +52,13 @@ document.addEventListener("DOMContentLoaded", () => {
       form.reset()
     });
   });
-//create notes list from input, if no input alert user
-//DELETE FUNCTION NOT FUNCTIONING
+  
+//create notes list from input, if no input alert user -- DELETE FUNCTION NOT FUNCTIONING
   function newNote(userNote) {
     let li = document.createElement('li');
-//    let btn = document.createElement('button');
-//    btn.addEventListener('click', handleDelete);
-//    btn.textContent = 'x';
+/*    let btn = document.createElement('button');
+      btn.addEventListener('click', handleDelete);
+      btn.textContent = 'x';*/
     li.textContent = `${userNote}`;
 //    li.appendChild[btn];
     if (`${userNote}` === '') {
@@ -64,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   
-//  function handleDelete(e) {
-//    e.target.parentNode.remove();
-//  }
+/*  function handleDelete(e) {
+      e.target.parentNode.remove();
+    }
+*/
