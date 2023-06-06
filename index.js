@@ -7,6 +7,7 @@ function fetchVolunteer() {
 }
 
 function displaySubject(data) {
+    randomSubject.innerHTML = ""
     let volunteer = data.results[0];
     let subjectName = (volunteer.name.first + " " + volunteer.name.last);
     let heading = document.createElement("h1");
@@ -19,3 +20,4 @@ function displaySubject(data) {
 }
 
 document.getElementById("nextProfile").addEventListener("click", fetchVolunteer);
+
