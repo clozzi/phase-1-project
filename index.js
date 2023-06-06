@@ -24,28 +24,32 @@ function displaySubject(data) {
     let subjPW = document.createElement("p");
     subjPW.innerHTML = volunteer.location.country;
     randomSubject.appendChild(subjPW);
+    //adds all generated users to potential subject list
+    document.getElementById('addSubject').addEventListener('click', () => {
+        let subjectName = (volunteer.name.first + " " + volunteer.name.last);
+        let heading = document.createElement("h1");
+        heading.innerHTML = subjectName;
+        subjectList.appendChild(heading);
+        //add image below the header
+        let subjectImg = document.createElement("img");
+        subjectImg.src = volunteer.picture.large;
+        subjectList.appendChild(subjectImg);
+        //add country below image
+        let subjPW = document.createElement("p");
+        subjPW.innerHTML = volunteer.location.country;
+        subjectList.appendChild(subjPW);
+    })
 }
 
-//add current subject to "study list" -- targeted incorrectly/not functioning
+/*
 document.getElementById("addSubject").addEventListener('click', addToList);
 function addToList() {
     let li = document.createElement('li');
-    li.innerHTML = randomSubject;
+    console.log(randomSubject);
+    let userData = (randomSubject.name.first + " " + randomSubject.name.last);
+    li.innerHTML = userData;
     document.querySelector('#subjectList').appendChild(li);
 }
-/*
-document.addEventListener("DOMContentLoaded", () => {
-    addSubject.addEventListener('click', (e) => {
-        e.preventDefault();
-        newSubject(e.target["subjectList"].value);
-    });
-  });
-
-  function newSubject(randomSubject) {
-    let li = document.createElement('li');
-    li.innerHTML = randomSubject;
-    document.querySelector('#subjectList').appendChild(li);
-  }
 */
 
 //allow user to cycle through random user profiles
