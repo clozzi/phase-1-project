@@ -22,6 +22,11 @@ function displaySubject(data) {
     randomSubject.appendChild(subjectImg);
 }
 
+//add current subject to "study list"
+function addSubject() {
+
+}
+
 //allow user to cycle through random user profiles
 document.getElementById("nextProfile").addEventListener("click", fetchVolunteer);
 

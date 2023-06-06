@@ -7,6 +7,17 @@ h1 {
     text-align: center;
 }
 
+.column {
+    float: left;
+    width: 50%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .addSubject {
     background-color: aquamarine;
     border: none;
