@@ -37,7 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.textContent = 'x';
     li.textContent = `${userNote}`;
     li.appendChild[btn];
-    document.querySelector('#myNotes').appendChild(li);
+    if (`${userNote}` === '') {
+        alert("That's not a very useful note!");
+    } else {
+        document.querySelector('#myNotes').appendChild(li);
+    }
   }
   
   function handleDelete(e) {
