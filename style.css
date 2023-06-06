@@ -35,7 +35,7 @@ h1 {
     cursor: pointer;
 }
 
-#notes {
+#notesList {
     background-color: aquamarine;
     border: none;
     color: black;

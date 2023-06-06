@@ -5,6 +5,7 @@
         <title>Subject Portal</title>
         <link rel="stylesheet" href="style.css" />
     </head>
+    
     <body>
         <div class="topnav">
             <a class="banner" id="banner">
@@ -13,14 +14,30 @@
                 </p>
             </a>
         </div>
+
         <h1>Candidate Search Portal for Scientific Studies</h1>
+
         <button class="addSubject">Add to Study</button>
+
         <div id="randomSubject">
         </div>
+
         <br>
         <button id="nextProfile">Click for Next Profile</button>
         <br>
-        <input type="submit" value="Create Note" id="notes"/>
+
+        <form id="notesList" action="" method="POST">
+            <label for="newNote">Note:</label>
+            <input type="text" id="newNote" name="newNote" placeholder="Add Note Here" />
+            <input type="submit" value="Add Note">
+        </form>
+
+        <div id="notes">
+            <h2>My Notes:</h2>
+            <ul id="myNotes">
+            </ul>
+        </div>
+
         <script src="index.js"></script>
     </body>
 </html>
