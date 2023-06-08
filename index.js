@@ -21,11 +21,13 @@ function displaySubject(data) {
     subjectImg.src = volunteer.picture.large;
     randomSubject.appendChild(subjectImg);
 //add country below image
-    let subjPW = document.createElement("p");
-    subjPW.innerHTML = volunteer.location.country;
-    randomSubject.appendChild(subjPW);
-    //adds all generated users to potential subject list
+    let subjCountry = document.createElement("p");
+    subjCountry.innerHTML = volunteer.location.country;
+    randomSubject.appendChild(subjCountry);
+    //adds all generated users to potential subject list -- CREATE SEPARATE CODE FOR THE NEXT PROFILE BUTTON -- might fix bug
+    //need to depopulate the randomsubject storage
     document.getElementById('addSubject').addEventListener('click', () => {
+        let volunteer = data.results[0];
         let subjectName = (volunteer.name.first + " " + volunteer.name.last);
         let heading = document.createElement("h1");
         heading.innerHTML = subjectName;
@@ -35,25 +37,37 @@ function displaySubject(data) {
         subjectImg.src = volunteer.picture.large;
         subjectList.appendChild(subjectImg);
         //add country below image
-        let subjPW = document.createElement("p");
-        subjPW.innerHTML = volunteer.location.country;
-        subjectList.appendChild(subjPW);
+        let subjCountry = document.createElement("p");
+        subjCountry.innerHTML = volunteer.location.country;
+        subjectList.appendChild(subjCountry);
     })
 }
 
-/*
-document.getElementById("addSubject").addEventListener('click', addToList);
-function addToList() {
-    let li = document.createElement('li');
-    console.log(randomSubject);
-    let userData = (randomSubject.name.first + " " + randomSubject.name.last);
-    li.innerHTML = userData;
-    document.querySelector('#subjectList').appendChild(li);
-}
-*/
-
 //allow user to cycle through random user profiles
-document.getElementById("nextProfile").addEventListener("click", fetchVolunteer);
+document.getElementById("nextProfile").addEventListener("click", fetchNextSubject);
+
+function fetchNextSubject() {
+    fetch("https://randomuser.me/api/")
+    .then(res => res.json())
+    .then(data => nextSubject(data));
+}
+
+function nextSubject(data) {
+    randomSubject.innerHTML = "";
+    let volunteer = data.results[0];
+    let subjectName = (volunteer.name.first + " " + volunteer.name.last);
+    let heading = document.createElement("h1");
+    heading.innerHTML = subjectName;
+    randomSubject.appendChild(heading);
+//add image below the header
+    let subjectImg = document.createElement("img");
+    subjectImg.src = volunteer.picture.large;
+    randomSubject.appendChild(subjectImg);
+//add country below image
+    let subjCountry = document.createElement("p");
+    subjCountry.innerHTML = volunteer.location.country;
+    randomSubject.appendChild(subjCountry);
+}
 
 //on dom load, add submit functionality to form and run f on input value
 document.addEventListener("DOMContentLoaded", () => {
