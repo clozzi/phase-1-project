@@ -1,6 +1,5 @@
 //run f on dom load
 document.addEventListener('DOMContentLoaded', fetchVolunteer)
-
 //fetch randomuser data from API then run f
 function fetchVolunteer() {
     fetch("https://randomuser.me/api/")
@@ -8,32 +7,8 @@ function fetchVolunteer() {
     .then(data => displaySubject(data));
 }
 
-//create heading with subjects first and last name
+//create initial heading with subjects first and last name
 function displaySubject(data) {
-    randomSubject.innerHTML = "";
-    let volunteer = data.results[0];
-    let subjectName = (volunteer.name.first + " " + volunteer.name.last);
-    let heading = document.createElement("h1");
-    heading.innerHTML = subjectName;
-    randomSubject.appendChild(heading);
-//add image below the header
-    let subjectImg = document.createElement("img");
-    subjectImg.src = volunteer.picture.large;
-    randomSubject.appendChild(subjectImg);
-//add country below image
-    let subjCountry = document.createElement("p");
-    subjCountry.innerHTML = volunteer.location.country;
-    randomSubject.appendChild(subjCountry);
-}
-
-//allow user to cycle through random user profiles
-document.getElementById("nextProfile").addEventListener("click", () => {
-    fetch("https://randomuser.me/api/")
-    .then(res => res.json())
-    .then(data => nextSubject(data));
-})
-
-function nextSubject(data) {
     randomSubject.innerHTML = "";
     let volunteer = data.results[0];
     let subjectName = (volunteer.name.first + " " + volunteer.name.last);
@@ -43,8 +18,8 @@ function nextSubject(data) {
     randomSubject.appendChild(heading);
 //add image below the header
     let subjectImg = document.createElement("img");
-    subjectImg.setAttribute('id', 'subjImg');
     subjectImg.src = volunteer.picture.large;
+    subjectImg.setAttribute("id", "usersImg")
     randomSubject.appendChild(subjectImg);
 //add country below image
     let subjCountry = document.createElement("p");
@@ -52,19 +27,23 @@ function nextSubject(data) {
     randomSubject.appendChild(subjCountry);
 }
 
-document.getElementById('addSubject').addEventListener('click', addToList);
-//need to clear original img OR access new img element (img elements add with each click so no reference point)
-function addToList() {
-    let heading = document.createElement('h1');
-    let newHeader = document.getElementById('usersName');
-    heading.innerHTML = newHeader.innerHTML;
-    subjectList.appendChild(heading);
+//next user button activated
+document.getElementById('nextProfile').addEventListener('click', fetchVolunteer);
 
-    console.log(subjImg);
-    let subjectImg = document.createElement("img");
-    subjectImg.setAttribute('id', 'subjImg');
-    subjectImg.src = subjImg.src;
-    subjectList.appendChild(subjectImg);
+//add subject button activated leading to f addtolist
+document.getElementById('addSubject').addEventListener('click', addToList);
+//creates a new list item from the current random user
+function addToList() {
+    let heading1 = document.createElement('h1');
+    let newHeader = document.getElementById('usersName');
+    heading1.innerHTML = newHeader.innerHTML;
+    subjectList.appendChild(heading1);
+
+    let subjectImg1 = document.createElement('img');
+    let imgElement = document.getElementById('usersImg');
+    let newImg = imgElement.cloneNode(true);
+    subjectImg1 = newImg;
+    subjectList.appendChild(subjectImg1);
 }
 
 //on dom load, add submit functionality to form and run f on input value
@@ -77,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
-//create notes list from input, if no input alert user -- DELETE FUNCTION NOT FUNCTIONING
+  //create notes list from input, if no input alert user -- DELETE FUNCTION NOT FUNCTIONING
   function newNote(userNote) {
     let li = document.createElement('li');
 /*    let btn = document.createElement('button');
