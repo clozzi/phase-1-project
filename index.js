@@ -59,19 +59,18 @@ document.addEventListener("DOMContentLoaded", () => {
   //create notes list from input, if no input alert user -- DELETE FUNCTION NOT FUNCTIONING
   function newNote(userNote) {
     let li = document.createElement('li');
-/*    let btn = document.createElement('button');
+    let btn = document.createElement('button');
       btn.addEventListener('click', handleDelete);
-      btn.textContent = 'x';*/
+      btn.textContent = 'X';
     li.textContent = `${userNote}`;
-//    li.appendChild[btn];
     if (`${userNote}` === '') {
         alert("That's not a very useful note!");
     } else {
         document.querySelector('#myNotes').appendChild(li);
     }
+    li.appendChild(btn);
   }
   
-/*  function handleDelete(e) {
+  function handleDelete(e) {
       e.target.parentNode.remove();
     }
-*/
