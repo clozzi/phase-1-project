@@ -62,7 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let btn = document.createElement('button');
       btn.addEventListener('click', handleDelete);
       btn.textContent = 'X';
-    li.textContent = `${userNote}`;
+      btn.setAttribute('id', 'xBtn');
+    li.textContent = `${userNote} `;
     if (`${userNote}` === '') {
         alert("That's not a very useful note!");
     } else {

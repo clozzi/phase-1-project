@@ -61,6 +61,10 @@ h1 {
     cursor: pointer;
 }
 
+#xBtn {
+    padding: 5px 5px;
+}
+
 .topnav {
     color: green;
     background-color: black;
