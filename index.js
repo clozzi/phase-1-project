@@ -24,33 +24,14 @@ function displaySubject(data) {
     let subjCountry = document.createElement("p");
     subjCountry.innerHTML = volunteer.location.country;
     randomSubject.appendChild(subjCountry);
-    //adds all generated users to potential subject list -- CREATE SEPARATE CODE FOR THE NEXT PROFILE BUTTON -- might fix bug
-    //need to depopulate the randomsubject storage
-    document.getElementById('addSubject').addEventListener('click', () => {
-        let volunteer = data.results[0];
-        let subjectName = (volunteer.name.first + " " + volunteer.name.last);
-        let heading = document.createElement("h1");
-        heading.innerHTML = subjectName;
-        subjectList.appendChild(heading);
-        //add image below the header
-        let subjectImg = document.createElement("img");
-        subjectImg.src = volunteer.picture.large;
-        subjectList.appendChild(subjectImg);
-        //add country below image
-        let subjCountry = document.createElement("p");
-        subjCountry.innerHTML = volunteer.location.country;
-        subjectList.appendChild(subjCountry);
-    })
 }
 
 //allow user to cycle through random user profiles
-document.getElementById("nextProfile").addEventListener("click", fetchNextSubject);
-
-function fetchNextSubject() {
+document.getElementById("nextProfile").addEventListener("click", () => {
     fetch("https://randomuser.me/api/")
     .then(res => res.json())
     .then(data => nextSubject(data));
-}
+})
 
 function nextSubject(data) {
     randomSubject.innerHTML = "";
