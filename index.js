@@ -46,6 +46,22 @@ function addToList() {
     subjectList.appendChild(subjectImg1);
 }
 
+document.getElementById('addSubject').addEventListener('mouseover', (e) => {
+  e.target.style.color = 'blue';
+})
+
+document.getElementById('addSubject').addEventListener('mouseout', (e) => {
+  e.target.style.color = 'black';
+})
+
+document.getElementById('nextProfile').addEventListener('mouseover', (e) => {
+  e.target.style.color = 'red';
+})
+
+document.getElementById('nextProfile').addEventListener('mouseout', (e) => {
+  e.target.style.color = 'black';
+})
+
 //on dom load, add submit functionality to form and run f on input value
 document.addEventListener("DOMContentLoaded", () => {
     let form = document.querySelector('form')
