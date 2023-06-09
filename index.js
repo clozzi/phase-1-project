@@ -40,6 +40,8 @@ function displaySubject(data) {
 //next user button activated
 document.getElementById('nextProfile').addEventListener('click', fetchVolunteer);
 
+let agesArray = [];
+
 //add subject button activated leading to f addtolist
 document.getElementById('addSubject').addEventListener('click', addToList);
 //creates a new list item from the current random user
@@ -60,15 +62,13 @@ function addToList() {
     subjAge1.innerHTML = newAge.innerHTML;
     subjectList.appendChild(subjAge1);
 
-    let ages = subjAge1.textContent;
-    userAges.append(ages);
+    agesArray.push(subjAge1.textContent);
 }
 
 
 document.getElementById('filter').addEventListener('click', filterAge);
 function filterAge() {
-  let agesArray = [userAges.textContent];
-  console.log(agesArray);
+  agesArray.filter()
 }
 
 
