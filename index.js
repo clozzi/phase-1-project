@@ -68,7 +68,14 @@ function addToList() {
 
 document.getElementById('filter').addEventListener('click', filterAge);
 function filterAge() {
-  agesArray.filter()
+  agesArray.forEach(saveYounglings);
+}
+function saveYounglings(item, agesArray) {
+  if (item < 35) {
+    console.log("no good");
+  } else {
+    console.log(item);
+  }
 }
 
 
