@@ -40,7 +40,6 @@ The primary purpose of this project is to create connections between scientists 
 The functionality of this project can be modified to select populations for alternative projects including, but not limited to:
 
 - Friend Finder: find individuals with similar interests and start chats
-- **More? Remove this section? Decisions, decisions...**
 
 ---
 
@@ -68,3 +67,5 @@ Here are a few resources that I found useful while completing this project, chec
 
 - [Markdown Guide](https://www.markdownguide.org/basic-syntax/)
 - [Random User API](https://randomuser.me/)
+- [w3Schools Tutorials](https://www.w3schools.com/)
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web)

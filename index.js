@@ -46,6 +46,7 @@ function addToList() {
     subjectList.appendChild(subjectImg1);
 }
 
+//mouseover mouseout events for addsubject and nextprofile btns"
 document.getElementById('addSubject').addEventListener('mouseover', (e) => {
   e.target.style.color = 'blue';
 })
