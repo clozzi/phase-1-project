@@ -72,10 +72,11 @@ function filterAge() {
 }
 function saveYounglings(item, agesArray) {
   if (item < 35) {
-    console.log("no good");
+    delete item;
   } else {
     console.log(item);
   }
+  console.log(item);
 }
 
 
