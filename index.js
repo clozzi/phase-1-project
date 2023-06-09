@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', fetchVolunteer)
 function fetchVolunteer() {
     fetch("https://randomuser.me/api/")
     .then(res => res.json())
-    .then(data => displaySubject(data));
+    .then(data => displaySubject(data))
 }
 
 //create initial heading with subjects first and last name
@@ -25,6 +25,16 @@ function displaySubject(data) {
     let subjCountry = document.createElement("p");
     subjCountry.innerHTML = volunteer.location.country;
     randomSubject.appendChild(subjCountry);
+//add user cell data
+    let subjCell = document.createElement('p');
+    subjCell.innerHTML = volunteer.cell;
+    subjCell.setAttribute("id", "usersCell");
+    randomSubject.appendChild(subjCell);
+//add user age, no display
+    let subjAge = document.createElement('p');
+    subjAge.innerHTML = volunteer.dob.age;
+    subjAge.setAttribute('id','usersAge');
+    randomSubject.appendChild(subjAge);
 }
 
 //next user button activated
@@ -44,9 +54,25 @@ function addToList() {
     let newImg = imgElement.cloneNode(true);
     subjectImg1 = newImg;
     subjectList.appendChild(subjectImg1);
+
+    let subjAge1 = document.createElement('p');
+    let newAge = document.getElementById('usersAge');
+    subjAge1.innerHTML = newAge.innerHTML;
+    subjectList.appendChild(subjAge1);
+
+    let ages = subjAge1.textContent;
+    userAges.append(ages);
 }
 
-//mouseover mouseout events for addsubject and nextprofile btns"
+
+document.getElementById('filter').addEventListener('click', filterAge);
+function filterAge() {
+  let agesArray = [userAges.textContent];
+  console.log(agesArray);
+}
+
+
+//mouseover mouseout events for addsubject and nextprofile btns
 document.getElementById('addSubject').addEventListener('mouseover', (e) => {
   e.target.style.color = 'blue';
 })
@@ -63,7 +89,7 @@ document.getElementById('nextProfile').addEventListener('mouseout', (e) => {
   e.target.style.color = 'black';
 })
 
-//on dom load, add submit functionality to form and run f on input value
+//on dom load, add submit functionality to form || run f on input value
 document.addEventListener("DOMContentLoaded", () => {
     let form = document.querySelector('form')
     form.addEventListener('submit', (e) => {
@@ -73,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
-  //create notes list from input, if no input alert user -- DELETE FUNCTION NOT FUNCTIONING
+  //create notes list from input, if no input alert user || adds delete btn
   function newNote(userNote) {
     let li = document.createElement('li');
     let btn = document.createElement('button');
