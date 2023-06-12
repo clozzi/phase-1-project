@@ -35,6 +35,7 @@ function displaySubject(data) {
     subjAge.innerHTML = volunteer.dob.age;
     subjAge.setAttribute('id','usersAge');
     randomSubject.appendChild(subjAge);
+    document.getElementById('usersAge').hidden = true;
 }
 
 //next user button activated
@@ -57,10 +58,14 @@ function addToList() {
     subjectImg1 = newImg;
     subjectList.appendChild(subjectImg1);
 
+    let subjCell1 = document.createElement('p');
+    let newCell = document.getElementById('usersCell');
+    subjCell1.innerHTML = newCell.innerHTML;
+    subjectList.appendChild(subjCell1);
+
     let subjAge1 = document.createElement('p');
     let newAge = document.getElementById('usersAge');
     subjAge1.innerHTML = newAge.innerHTML;
-    subjectList.appendChild(subjAge1);
 
     agesArray.push(subjAge1.textContent);
 }
@@ -71,12 +76,11 @@ function filterAge() {
   agesArray.forEach(saveYounglings);
 }
 function saveYounglings(item, agesArray) {
-  if (item < 35) {
-    delete item;
+  if (item < 30) {
+    alert(`Age: ${item} years old, outside of the standard age parameters for these studies.`);
   } else {
-    console.log(item);
+    alert(`Age: ${item} years old, within the standard age parameters for these studies.`);
   }
-  console.log(item);
 }
 
 
